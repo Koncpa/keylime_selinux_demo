@@ -1,0 +1,15 @@
+# setup configuration
+
+discover:
+  how: fmf
+  url: https://github.com/RedHat-SP-Security/keylime-tests
+  ref: rhel-9-main
+  test:
+   - /setup/configure_tpm_emulator
+   # change IMA policy to simple and run one attestation scenario
+   # this is to utilize also a different parser
+   - /setup/configure_kernel_ima_module/ima_policy_simple
+
+execute:
+    how: tmt
+
